@@ -97,11 +97,11 @@ public class KafkaCrdIT extends AbstractCrdIT {
                     containsStringIgnoringCase(expectedMessageWithoutIndex)
                 ));
     
-            } catch (Exception e) {
-                // Print any unexpected exceptions
-                System.out.println("Unexpected error: " + e.getMessage());
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            // Print any unexpected exceptions
+            System.out.println("Unexpected error: " + e.getMessage());
+            e.printStackTrace();
+        }
     
         System.out.println("Finished testKafkaWithNullMaintenance.");
     }
