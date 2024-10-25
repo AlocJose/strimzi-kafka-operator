@@ -81,17 +81,17 @@ public class KafkaCrdIT extends AbstractCrdIT {
             System.out.println("Exception caught: " + exception.getMessage());
     
             // Check for expected exception message
-            String expectedMessageWithIndex = "invalid: spec.maintenanceTimeWindows[0]: Invalid value: \"null\": spec.maintenanceTimeWindows[0] in body must be of type string: \"null\"";
-            // String expectedMessageWithoutIndex = "invalid: spec.maintenanceTimeWindows: Invalid value: \"null\": spec.maintenanceTimeWindows in body must be of type string: \"null\"";
+            // String expectedMessageWithIndex = "invalid: spec.maintenanceTimeWindows[0]: Invalid value: \"null\": spec.maintenanceTimeWindows[0] in body must be of type string: \"null\"";
+            String expectedMessageWithoutIndex = "invalid: spec.maintenanceTimeWindows: Invalid value: \"null\": spec.maintenanceTimeWindows in body must be of type string: \"null\"";
             String actualMessage = exception.getMessage();
     
             // Print the actual and expected messages
-            System.out.println("Expected message with [0]: " + expectedMessageWithIndex);
-            // System.out.println("Expected message without [0]: " + expectedMessageWithoutIndex);
+            // System.out.println("Expected message with [0]: " + expectedMessageWithIndex);
+            System.out.println("Expected message without [0]: " + expectedMessageWithoutIndex);
             System.out.println("Actual message: " + actualMessage);
 
-            assertThat(exception.getMessage(), containsStringIgnoringCase(expectedMessageWithIndex));
-            // assertThat(exception.getMessage(), containsStringIgnoringCase(expectedMessageWithoutIndex));    
+            // assertThat(exception.getMessage(), containsStringIgnoringCase(expectedMessageWithIndex));
+            assertThat(exception.getMessage(), containsStringIgnoringCase(expectedMessageWithoutIndex));    
         } catch (Exception e) {
             // Print any unexpected exceptions
             System.out.println("Unexpected error: " + e.getMessage());
